@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ChoDap | Shop</title>
+
+    <link rel="stylesheet" href="shop.css">
+</head>
+
+<body>
+
+    <div class="header">
+
+        <a href="products.html">PRODUCTS</a>
+
+        <a href="about_us.html">ABOUT US</a>
+
+        <a href="index.html">
+            <img src="ChoDap_Logo.png" alt="ChoDap Logo">
+        </a>
+
+        <a href="shop.html">SHOP</a>
+
+        <a href="form.html" class="cart_link">
+            MY CART
+            <span id="cartCount">0</span>
+        </a>
+
+    </div>
+
+    <div class="shop_heading">
+
+        <p>A LITTLE BIT OF HAPPINESS</p>
+
+        <h1>Made for Chocoholics ♡</h1>
+
+    </div>
+
+    <div class="shop_container">
+
+        <section>
+
+            <img src="ruby_roseberry.jfif" alt="Ruby Roseberry">
+
+            <h3>Ruby Roseberry</h3>
+
+            <p>RM5.00</p>
+
+            <p>Per piece</p>
+
+            <button onclick="addToCart('Ruby Roseberry', 5.00, 'piece')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="forest_truffle.jfif" alt="Forest Truffle">
+
+            <h3>Forest Truffle</h3>
+
+            <p>RM5.00</p>
+
+            <p>Per piece</p>
+
+            <button onclick="addToCart('Forest Truffle', 5.00, 'piece')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="white_lava.jfif" alt="White Lava">
+
+            <h3>White Lava</h3>
+
+            <p>RM5.00</p>
+
+            <p>Per piece</p>
+
+            <button onclick="addToCart('White Lava', 5.00, 'piece')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="Blush Berry.jfif" alt="Blush Berry">
+
+            <h3>Blush Berry</h3>
+
+            <p>RM6.00</p>
+
+            <p>Per piece</p>
+
+            <button onclick="addToCart('Blush Berry', 6.00, 'piece')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="Kyoto Dream.jfif" alt="Kyoto Dream">
+
+            <h3>Kyoto Dream</h3>
+
+            <p>RM6.00</p>
+
+            <p>Per piece</p>
+
+            <button onclick="addToCart('Kyoto Dream', 6.00, 'piece')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="Midnight Golden.jfif" alt="Midnight Golden">
+
+            <h3>Midnight Golden</h3>
+
+            <p>RM6.00</p>
+
+            <p>Per piece</p>
+
+            <button onclick="addToCart('Midnight Golden', 6.00, 'piece')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="Scarlet Bloom.jfif" alt="Scarlet Bloom">
+
+            <h3>Scarlet Bloom</h3>
+
+            <p>RM7.99</p>
+
+            <p>Per piece</p>
+
+            <button onclick="addToCart('Scarlet Bloom', 7.99, 'piece')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="Green Choco.jfif" alt="Green Choco">
+
+            <h3>Green Choco</h3>
+
+            <p>RM7.99</p>
+
+            <p>Per piece</p>
+
+            <button onclick="addToCart('Green Choco', 7.99, 'piece')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="Toffee Crunch.jfif" alt="Toffee Crunch">
+
+            <h3>Toffee Crunch</h3>
+
+            <p>RM7.99</p>
+
+            <p>Per piece</p>
+
+            <button onclick="addToCart('Toffee Crunch', 7.99, 'piece')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="Caramel Cloud.jfif" alt="Caramel Cloud">
+
+            <h3>Caramel Cloud</h3>
+
+            <p>RM45.99</p>
+
+            <p>Per bar</p>
+
+            <button onclick="addToCart('Caramel Cloud', 45.99, 'bar')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="Matcha Dream.jfif" alt="Matcha Dream">
+
+            <h3>Matcha Dream</h3>
+
+            <p>RM45.99</p>
+
+            <p>Per bar</p>
+
+            <button onclick="addToCart('Matcha Dream', 45.99, 'bar')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+        <section>
+
+            <img src="Amber Bliss.jfif" alt="Amber Bliss">
+
+            <h3>Amber Bliss</h3>
+
+            <p>RM45.99</p>
+
+            <p>Per bar</p>
+
+            <button onclick="addToCart('Amber Bliss', 45.99, 'bar')">
+                ADD TO CART
+            </button>
+
+        </section>
+
+    </div>
+
+    <p class="closing">
+        Life is sweeter with chocolate. Thank you for making ChoDap
+        part of your sweetest moments!
+    </p>
+
+    <script>
+
+        function addToCart(productName, price, unit) {
+
+            let cart = JSON.parse(
+                localStorage.getItem("chodapCart")
+            ) || [];
+
+            let existingProduct = cart.find(
+                item => item.name === productName
+            );
+
+            if (existingProduct) {
+
+                if (existingProduct.quantity >= 50) {
+
+                    alert("Maximum quantity is 50!");
+
+                    return;
+
+                }
+
+                existingProduct.quantity++;
+
+            }
+
+            else {
+
+                cart.push({
+
+                    name: productName,
+
+                    price: price,
+
+                    unit: unit,
+
+                    quantity: 1
+
+                });
+
+            }
+
+            localStorage.setItem(
+                "chodapCart",
+                JSON.stringify(cart)
+            );
+
+            updateCartCount();
+
+            alert(productName + " has been added to your cart!");
+
+        }
+
+        function updateCartCount() {
+
+            let cart = JSON.parse(
+                localStorage.getItem("chodapCart")
+            ) || [];
+
+            let totalItems = 0;
+
+            for (let i = 0; i < cart.length; i++) {
+
+                totalItems += Number(cart[i].quantity);
+
+            }
+
+            document.getElementById("cartCount").textContent = totalItems;
+
+        }
+
+        updateCartCount();
+
+    </script>
+
+</body>
+
+</html>

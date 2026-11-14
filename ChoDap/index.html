@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGE | ChoDap</title>
+</head>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFF5E9;
+}
+
+
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: #FFF5E9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 65px;
+
+    border-bottom: 2px solid #D6B45C;
+}
+
+.header a {
+    text-decoration: none;
+    color: #59382D;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    transition: 0.3s;
+}
+
+.header a:hover {
+    color: #D6B45C;
+}
+
+.header img {
+    width: 300px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.header .cart_link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#cartCount {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 23px;
+    height: 23px;
+    padding: 3px 6px;
+
+    background-color: #D6B45C;
+    color: #59382D;
+
+    border-radius: 50%;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .header {
+        gap: 30px;
+    }
+
+    .header img {
+        width: 200px;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .header {
+        height: auto;
+        min-height: 100px;
+        gap: 15px;
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+
+    .header a {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .header img {
+        width: 130px;
+        height: 55px;
+    }
+
+}
+
+
+.shop_heading {
+    text-align: center;
+    margin: 50px 0 35px;
+}
+
+.shop_heading p {
+    color: #A17A60;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.shop_heading h1 {
+    color: #59382D;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.shop_heading h4 {
+    color: #927767;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+
+.intro {
+    text-align: center;
+    width: 70%;
+    margin: 20px auto 40px;
+    line-height: 1.8;
+    color: #795C50;
+}
+
+.product_information{
+    width: 85%;
+    margin: auto;
+}
+
+.info_1, .info_2, .info_3, .info_4 {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    padding: 35px;
+    margin-bottom: 35px;
+
+    border-radius: 15px;
+    border: 1px solid #E5D2BE;
+}
+
+.info_1 {
+    background-color: #F5E5D8;
+}
+
+.info_2 {
+    background-color: #F8E8EC;
+}
+
+.info_3 {
+    background-color: #EEE8F5;
+}
+
+.info_4 {
+    background-color: #F5EBD5;
+}
+
+.info_1 img, .info_2 img,
+.info_3 img, .info_4 img {
+    width: 40%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info_text {
+    flex: 1;
+}
+
+.info_text h3 {
+    color: #86566A;
+    font-size: 23px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.info_text p {
+    color: #59382D;
+    font-size: 16px;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+.closing {
+    text-align: center;
+    margin: 50px 20px;
+    color: #86566A;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.8;
+}
+.greeting {
+    text-align: center;
+    color: #86566A;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.day_message {
+    text-align: center;
+    color: #795C50;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 12px rgba(89, 56, 45, 0.2);
+}
+
+.toggle_btn {
+    margin-top: 15px;
+    padding: 8px 18px;
+    background-color: #86566A;
+    color: #FFF5E9;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle_btn:hover {
+    background-color: #59382D;
+}
+
+.info_text p.collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card_hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(89, 56, 45, 0.2);
+}
+
+.info_1, .info_2, .info_3, .info_4 {
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.8s;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+    padding: 12px 16px;
+    background-color: #D6B45C;
+    color: #59382D;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+#backToTop:hover {
+    background-color: #59382D;
+    color: #FFF5E9;
+}
+</style>
+<body>
+    <div class="header">
+        <a href="products.html" class="products">PRODUCTS</a>
+        <a href="about_us.html" class="about_us">ABOUT US</a>
+        <a href="index.html">
+            <img src="ChoDap_Logo.png" alt="logo">
+        </a>
+        <a href="shop.html" class="shop">SHOP</a>
+        <a href="form.html" class="cart_link">
+            MY CART
+            <span id="cartCount">0</span>
+        </a>
+    </div>
+
+    <div class="shop_heading">
+
+        <p>MADE TO MAKE YOU SMILE</p>
+
+        <h1>WHY CHOOSE ChoDap?</h1>
+
+
+    </div>
+
+    
+
+    <p class="greeting" id="greeting"></p>
+    <p class="day_message" id="dayMessage"></p>
+
+    <p class="intro">
+
+    </p>
+
+
+
+
+    <div class="product_information">
+
+        <section class="info_1">
+            <img src="info_1.jfif" alt="info_1">
+
+            <div class="info_text">
+                <h3>1. Rich & Creamy Chocolate Bliss</h3>
+                <p class="collapsed">Let yourself drift into a world of chocolate indulgence 
+                    with every bite. Our chocolate brings together a rich, 
+                    creamy taste and a silky-smooth texture that melts 
+                    effortlessly in your mouth. Each little piece offers a 
+                    moment of pure bliss, making even the simplest day feel 
+                    a little more magical. It's the kind of sweetness you'll 
+                    wish could last forever.</p>
+                <button class="toggle_btn">Read More</button>
+            </div>
+        </section>
+
+        <section class="info_2">
+
+            <div class="info_text">
+                <h3>2. A Dreamy World of Delicious Flavours</h3>
+                <p class="collapsed">Step into a delightful world where every chocolate flavour 
+                    tells its own sweet story. From timeless chocolate 
+                    favourites to exciting and irresistible combinations, 
+                    there is always something new to fall in love with. Whether 
+                    you enjoy something sweet, milky or deeply chocolatey, 
+                    every selection invites you to discover a little happiness 
+                    in every bite.</p>
+                <button class="toggle_btn">Read More</button>
+            </div>
+            <img src="info_2.jfif" alt="info_2">
+        </section>
+
+        
+        <section class="info_3">
+            <img src="info_3.jfif" alt="info_3">
+
+            <div class="info_text">
+                <h3>3. Sweet Gifts, Beautiful Memories</h3>
+                <p class="collapsed">Some feelings are best expressed through something sweet. 
+                    Our chocolate treats make lovely companions for birthdays, 
+                    anniversaries, celebrations and those unexpected moments 
+                    when you simply want to make someone smile. Beautifully 
+                    presented and filled with sweetness, they are more than 
+                    just gifts, they are little reminders of love, care and 
+                    unforgettable memories.</p>
+                <button class="toggle_btn">Read More</button>
+            </div>
+        </section>
+
+        <section class="info_4">
+
+            <div class="info_text">
+                <h3>4. Your Little Escape from Everyday Cravings</h3>
+                <p class="collapsed">Everyone deserves a little sweetness in their day. Whether 
+                    you're taking a peaceful afternoon break, rewarding yourself 
+                    after a long day or simply craving something delicious, 
+                    ChoDap is here to make those moments extra special. Let the 
+                    sweetness melt away your worries and turn an ordinary moment 
+                    into a dreamy chocolate escape.</p>
+                <button class="toggle_btn">Read More</button>
+            </div>
+            <img src="info_4.jfif" alt="info_4">
+        </section>
+        
+    </div>
+
+    <p class="closing">
+        Life is sweeter with chocolate. Thank you for making ChoDap
+        part of your sweetest moments!
+    </p>
+
+    <button id="backToTop" title="Back to top">&#8679;</button>
+
+    <script src="index.js"></script>
+</body>
+</html>

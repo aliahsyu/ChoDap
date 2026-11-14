@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SHOPPING CART | ChoDap</title>
+
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+
+
+    <div class="header">
+
+        <a href="products.html" class="products">PRODUCTS</a>
+
+        <a href="about_us.html" class="about_us">ABOUT US</a>
+
+        <a href="index.html">
+            <img src="ChoDap_Logo.png" alt="ChoDap Logo">
+        </a>
+
+        <a href="shop.html" class="shop">SHOP</a>
+
+        <a href="form.html" class="cart_link">
+            MY CART
+            <span id="cartCount">0</span>
+        </a>
+
+    </div>
+
+    <div class="shop_heading">
+
+        <p>YOUR SWEET SELECTION</p>
+
+        <h1>Your Shopping Cart ♡</h1>
+
+
+    </div>
+
+
+    <div class="order_container">
+
+        <form id="orderForm" onsubmit="submitOrder(event)">
+
+
+            <div class="form_section">
+
+                <h2>01. Your Shopping Cart</h2>
+
+                <p class="section_description">
+                    Review your selected chocolates before checkout.
+                </p>
+
+                <div id="cartItems">
+
+                </div>
+
+                <p id="emptyCart">
+
+                    Your cart is currently empty! ♡
+
+                    <br><br>
+
+                    Let's find something sweet.
+
+                </p>
+
+                <a href="shop.html" class="continue_shopping">
+
+                    ← Continue Shopping
+
+                </a>
+
+            </div>
+
+
+            <div class="form_section">
+
+                <h2>02. Customer Information</h2>
+
+
+                <div class="form_group">
+
+                    <label for="customerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form_group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@email.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form_group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="0123456789"
+                        pattern="[0-9+\-\s]{9,15}"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form_section">
+
+                <h2>03. Delivery Information</h2>
+
+
+                <div class="form_group">
+
+                    <label for="address">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        placeholder="Enter your full delivery address"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form_group">
+
+                    <label for="delivery">
+                        Delivery Method
+                    </label>
+
+                    <select id="delivery" required>
+
+                        <option value="5">
+                            Standard Delivery - RM5.00
+                        </option>
+
+                        <option value="10">
+                            Express Delivery - RM10.00
+                        </option>
+
+                        <option value="0">
+                            Self Pickup - Free
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form_section">
+
+                <h2>04. Payment Method</h2>
+
+
+                <label class="payment_option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="Online Banking"
+                        required
+                    >
+
+                    Online Banking
+
+                </label>
+
+
+                <label class="payment_option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="E-wallet"
+                    >
+
+                    E-wallet
+
+                </label>
+
+
+                <label class="payment_option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="Cash on Delivery"
+                    >
+
+                    Cash on Delivery
+
+                </label>
+
+            </div>
+
+
+            <div class="summary">
+
+                <h2>05. Order Summary</h2>
+
+
+                <div class="summary_row">
+
+                    <span>Total Items</span>
+
+                    <span id="totalItems">0</span>
+
+                </div>
+
+
+                <div class="summary_row">
+
+                    <span>Subtotal</span>
+
+                    <span id="subtotal">RM0.00</span>
+
+                </div>
+
+
+                <div class="summary_row">
+
+                    <span>Delivery Fee</span>
+
+                    <span id="deliveryFee">RM5.00</span>
+
+                </div>
+
+
+                <div class="summary_row total">
+
+                    <span>Total Payment</span>
+
+                    <span id="total">RM5.00</span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="order_button"
+            >
+
+                PLACE MY ORDER ♡
+
+            </button>
+
+
+            <div id="order_message"></div>
+
+
+        </form>
+
+    </div>
+
+
+    <p class="closing">
+        Life is sweeter with chocolate. Thank you for making ChoDap
+        part of your sweetest moments!
+    </p>
+
+    <script src="form.js"></script>
+
+
+</body>
+</html>
